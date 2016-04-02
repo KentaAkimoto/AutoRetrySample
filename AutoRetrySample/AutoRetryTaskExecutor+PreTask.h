@@ -10,6 +10,6 @@
 
 @interface AutoRetryTaskExecutor (PreTask)
 
-+ (void) preTask:(id)sender;
++ (BOOL) preTask:(id)sender;
 
 @end

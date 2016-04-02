@@ -10,10 +10,11 @@
 
 @implementation AutoRetryTaskExecutor (PreTask)
 
-+ (void) preTask:(id)sender {
++ (BOOL) preTask:(id)sender {
     // ここでrelogin処理など行う
     NSLog(@"%@ @ %@ start", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
     NSLog(@"%@ @ %@ end", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
+    return YES;
 }
 
 @end

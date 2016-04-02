@@ -21,13 +21,15 @@
         // pre task
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
+        BOOL successPreTask = NO;
         if ([self respondsToSelector:@selector(preTask:)]) {
-            [self performSelector:@selector(preTask:) withObject:self];
+            successPreTask = [self performSelector:@selector(preTask:) withObject:self];
         }
 #pragma clang diagnostic pop
-        
-        // main task
-        result = task(&needRetry);
+        if (successPreTask) {
+            // main task
+            result = task(&needRetry);
+        }
     }
     
     return result;
